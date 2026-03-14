@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGB Soluções | Infraestrutura de TI e Tecnologia</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* RESET E VARIÁVEIS */
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    :root {
+      --primary: #000000;
+      --accent: #f4b400; /* Amarelo do logo */
+      --dark: #111111;
+      --gray: #6b7280;
+      --light: #ffffff;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f4f4;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background: #000000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Estilização do Logo conforme a foto */
+    .logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo span {
+      font-family: 'Michroma', sans-serif;
+      font-size: 24px;
+      letter-spacing: 1px;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .logo span .accent-text {
+      color: var(--accent);
+      margin-left: 5px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* HERO SECTION */
+    header {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+      url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80') center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      color: var(--light);
+    }
+
+    header h1 {
+      font-family: 'Michroma', sans-serif; /* Título principal seguindo o estilo do logo */
+      font-size: 42px;
+      max-width: 900px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    header h1 span {
+      color: var(--accent);
+    }
+
+    header p {
+      margin-bottom: 35px;
+      font-size: 18px;
+      max-width: 750px;
+      color: #ccc;
+    }
+
+    /* BOTÕES */
+    .btn {
+      padding: 16px 40px;
+      background: var(--accent);
+      color: var(--primary);
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 14px;
+      transition: .3s;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #ffffff;
+      transform: translateY(-3px);
+    }
+
+    /* SEÇÕES GERAIS */
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Michroma', sans-serif;
+      font-size: 30px;
+      margin-bottom: 60px;
+      color: var(--primary);
+      text-transform: uppercase;
+    }
+
+    /* SOBRE */
+    .about {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      font-size: 18px;
+      color: var(--gray);
+    }
+
+    /* SERVIÇOS */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .service-box {
+      background: var(--light);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: .3s;
+      border-bottom: 4px solid transparent;
+    }
+
+    .service-box:hover {
+      transform: translateY(-10px);
+      border-bottom: 4px solid var(--accent);
+    }
+
+    .service-box h4 {
+      margin-bottom: 15px;
+      font-family: 'Michroma', sans-serif;
+      font-size: 16px;
+      color: var(--primary);
+    }
+
+    /* CTA */
+    .cta {
+      background: var(--primary);
+      color: var(--light);
+      text-align: center;
+      padding: 80px 20px;
+      margin: 0 8%;
+      border-radius: 20px;
+    }
+
+    /* CONTATO */
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    form button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      background: var(--primary);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    form button:hover {
+      background: var(--accent);
+      color: var(--primary);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: var(--dark);
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-size: 30px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    /* RESPONSIVIDADE */
+    @media(max-width:768px){
+      nav { padding: 15px 5%; }
+      nav ul { display: none; } /* Oculta menu em telas pequenas para simplicidade */
+      header h1 { font-size: 28px; }
+      .logo span { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="logo">
+    <span>AGB <span class="accent-text">SOLUÇÕES</span></span>
+  </a>
+  <ul>
+    <li><a href="#home">Início</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<header id="home">
+  <h1><span>Infraestrutura de TI</span> e Soluções Tecnológicas</h1>
+  <p>Especialistas em redes, suporte técnico, eletrônica e elétrica profissional em Campo Grande – MS.</p>
+  <a href="#contato" class="btn">Solicitar Orçamento</a>
+</header>
+
+<section id="sobre">
+  <h2 class="section-title">Sobre a AGB</h2>
+  <div class="about">
+    Atuamos com excelência técnica em tecnologia da informação, eletrônica e elétrica. Nossa missão é entregar soluções seguras e eficientes para clientes residenciais e empresariais.
+  </div>
+</section>
+
+<section id="servicos">
+  <h2 class="section-title">Nossos Serviços</h2>
+  <div class="services">
+    <div class="service-box">
+      <h4>Instalações Elétricas</h4>
+      <p>Projetos, quadros de distribuição e manutenção preventiva e corretiva.</p>
+    </div>
+    <div class="service-box">
+      <h4>Reparo de Placas</h4>
+      <p>Diagnóstico e reparo de circuitos eletrônicos com precisão técnica.</p>
+    </div>
+    <div class="service-box">
+      <h4>Suporte em TI</h4>
+      <p>Manutenção de computadores, upgrades e otimização de sistemas.</p>
+    </div>
+    <div class="service-box">
+      <h4>Redes & Wi-Fi</h4>
+      <p>Cabeamento estruturado e configuração de redes de alta performance.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2 style="font-family: 'Michroma'; margin-bottom: 20px;">Pronto para otimizar sua empresa?</h2>
+  <a href="https://wa.me/556791759362" class="btn">Falar no WhatsApp</a>
+</section>
+
+<section id="contato">
+  <h2 class="section-title">Contato</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <p><strong>WhatsApp:</strong> (67) 9175-9362</p>
+      <p><strong>Email:</strong> agbsolucoesintegradas@gmail.com</p>
+      <p><strong>Localização:</strong> Campo Grande – MS</p>
+    </div>
+    <form>
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu email" required>
+      <textarea rows="4" placeholder="Como podemos ajudar?"></textarea>
+      <button type="submit">Enviar Mensagem</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 AGB Soluções Integradas - Campo Grande/MS.
+</footer>
+
+<a href="https://wa.me/556791759362" class="whatsapp" target="_blank">WP</a>
+
+</body>
+</html>
